@@ -9,3 +9,4 @@ short and one long. These answers have to be relevant and retrieved from the art
 https://www.kaggle.com/c/tensorflow2-question-answering/overview
 
 Pierre GONCALVES, Frederic ASSMUS, Axel DIDIER
+M2 NLP - Université de Lorraine - 2020
