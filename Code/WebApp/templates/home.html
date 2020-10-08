@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
   <meta charset="utf-8" />
-  <title>Ask me</title>
+  <title>🤔 Ask me</title>
   <link type="text/css" rel="stylesheet"
         href="{{ url_for('static',
               filename='home.css')}}" />
@@ -11,6 +11,7 @@
 <body>
   
   <div class ="topnav">
+    
     <a href="#home" id='test'>Home</a>
     <a href="#about" id ='test'>About</a>
   </div>
@@ -20,20 +21,23 @@
       <!--<h1>Ask.me</h1>-->
       <h1 class="t" id="a" >A</h1><h1 class="t" id="s">s</h1><h1 class="t" id="k">k</h1><h1 class="t" id="d">.</h1><h1 class="t" id="m">m</h1><h1 class="t" id="e">e</h1>
     </div>
+    
+    
     <form class="SearchBox" action="">
       <input id="search" type="text" placeholder="Ask me a question ..." name="search">
       <button id="ask" type="submit">⌕</button>
     </form>
-
-
+    
     <!--<form onsubmit="event.preventDefault();" role="search" class="ouf">
   
       <input id="search" type="search" placeholder="Search..." autofocus required />
       <button id="ask" type="submit">Ask</button>    
     </form>-->
 
-    <div class="AnswerBox">
-
+    <div class="AnswerBox" id="ans">
+      <p id="ans">Vestibulum efficitur urna ac sodales imperdiet. Nullam sit amet accumsan erat. 
+        Aliquam cursus venenatis imperdiet. Nulla condimentum nulla ut ex posuere, sit amet ullamcorper leo commodo. 
+        Curabitur vulputate dapibus neque, et finibus ante euismod sed. Nulla facilisi. </p>
 
     </div>
 <!-------------------------------------------------------------------------------------->
