@@ -16,7 +16,7 @@ Thx to : https://webdesign.tutsplus.com/tutorials/css-experiments-with-a-search-
     transition: 0.5s;
     
 }
-
+/* == Focus Bar == */
 .container input#search:focus{
     transition: width 0.2s, margin-left 0.2s;
     box-shadow: none!important;
@@ -28,6 +28,7 @@ Thx to : https://webdesign.tutsplus.com/tutorials/css-experiments-with-a-search-
     
     /* box-shadow: 3px 3px #1e1e1f; */
 }
+/* == Default Bar == */
 .container input#search{
     transition: width 0.5s, margin-left 0.5s;
     border: 2px solid transparent;
@@ -120,15 +121,26 @@ html {
     scroll-behavior: smooth;
 }
 body{
-    background-color: #272a30;
+    background-color: #272a30;/*272a30*/
     overflow: hidden;
     
+}
+.Title{
+    color: aliceblue;
+    font: bold 70px 'Comfortaa', cursive;
+    width: 100%;
+    height: 300px;
+    text-align:center;
+    display:block;   
 }
 .t{
     display: inline-block;
     /*color: white;*/
     transition: 2s;
     cursor: help;
+    margin-bottom: 0;
+    margin-top: 130px;
+    
 }
 #a{color: rgb(171, 53, 187)}
 #s{color: rgb(221, 83, 83)}
@@ -164,7 +176,7 @@ body{
   
   /* Change the color of links on hover */
 .topnav a:hover {
-    color: #2196F3;
+    color: rgb(66, 110, 255);
 
     transition: 0.1s;
     /*text-shadow: 3px 3px #1e1e1f;*/
@@ -176,23 +188,52 @@ body{
     color: #1378d6;
 }
 
-.Title{
-    color: aliceblue;
-    font: bold 70px 'Comfortaa', cursive;
-    width: 100%;
-    height: 350px;
-    text-align:center;
-    display:block;   
-}
+
 
 .AnswerBox{
     padding-top: 40px;
-    height: 350px;
+    height: 100px;
     width: 650px;
     margin: auto;
     color: aliceblue;
-    font: bold 20px 'Comfortaa', cursive;
-    align-items: center;   
+    font: 20px 'Comfortaa', cursive;
+    align-items: center;
+    text-align: center;
+}
+
+.ContextBox{
+    height: 250px;
+    width: 650px;
+    margin: auto;
+    align-items: center;
+    color: aliceblue;
+    font: 16px 'Comfortaa', cursive;
+
+   
+}
+#context{
+    margin: 0;
+    padding-bottom: 20px;
+    
+}
+#URL{
+    color: rgb(66, 110, 255);
+    text-decoration: none;
+}
+.showButton{
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+#showButton{
+    background: none;
+    border: none;
+    color: rgb(66, 110, 255);
+    font: 18px 'Arial';
+    
+}
+#showButton:hover{
+    cursor: pointer;
 }
 /*#search:hover + #ans{
     border: 2px solid rgb(177, 177, 177);
@@ -203,6 +244,13 @@ body{
 
 
 /* ===============================================================*/
+
+
+
+h3{
+    font-size: 50px;
+}
+
 .AboutBox{
     width: 400px;
     align-items: center;
@@ -212,10 +260,6 @@ body{
     margin: auto;
     padding-bottom: 100px;
     display:block; 
-}
-
-h3{
-    font-size: 50px;
 }
 
 

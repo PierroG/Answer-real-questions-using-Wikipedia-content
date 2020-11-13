@@ -29,26 +29,51 @@
     </form>
     -->
     <div class="box">
-      
         <form class="container" action="/" method="POST">
-          <input type="search" id="search" placeholder="What do you want to know ?" />
-          <button class="icon"><i id="ic" class="fa fa-search"></i></button>
+          {% if question %}
+          <input type="search" id="search" placeholder="What do you want to know ?" value="{{ question }}" name="search">
+          {% else %}
+          <input type="search" id="search" placeholder="What do you want to know ?" name="search">
+          {% endif %}
+          <button class="icon" type="submit"><i id="ic" class="fa fa-search"></i></button>
         </form>
       
     </div>
     
-    <!--<form onsubmit="event.preventDefault();" role="search" class="ouf">
-  
-      <input id="search" type="search" placeholder="Search..." autofocus required />
-      <button id="ask" type="submit">Ask</button>    
-    </form>-->
-    {% if answer %}
-    <p class="text-danger float-right">{{ answer }}</p>
-    {% endif %}
+    <script>
+      function HideShow() {
+        var x = document.getElementById("context");
+        var b = document.getElementById("showButton");
+        var u = document.getElementById("URL");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+          u.style.display = "block";
+          b.innerHTML = "Hide Source"
+        } else {
+          x.style.display = "none";
+          u.style.display = "none";
+          b.innerHTML = "Show Source"
+        }
+      } 
+    </script>
 
-    <div class="AnswerBox" id="ans">
-      <p id="ans">Display the answer here  </p>
 
+    <div class="AnswerBox">
+      
+      	{% if answer %}
+      		<p id="answer">{{ answer }}</p>
+      	{% endif %}
+  		
+    </div>
+    <div class='ContextBox'>
+    	{% if answer %}
+      <p id="context" style="display:none;">The Moon is thought to have formed about 4.51 billion years ago, not long after Earth. The most widely accepted explanation is that the Moon formed from the debris left over after a giant impact between Earth and a hypothetical Mars-sized body called Theia. New research of Moon rocks, although not rejecting the Theia hypothesis, suggests that the Moon may be older than previously thought.
+      </p>
+      <a href="https://en.wikipedia.org/wiki/Donald_Trump" target="_blank" id='URL' style="display:none;">https://en.wikipedia.org/wiki/...</a>
+      <div class="showButton">
+        <button id='showButton' onclick="HideShow()" >Show Source</button>
+      </div>
+      	{% endif %}
     </div>
 <!-------------------------------------------------------------------------------------->
 
