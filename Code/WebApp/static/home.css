@@ -149,6 +149,13 @@ body{
 #m{color: rgb(83, 221, 90)}
 #e{color: rgb(218, 180, 75)}
 
+/*#a{color: #6a63b6}
+#s{color: #f47e60}
+#k{color: #6492ac}
+#d{color: rgb(255, 255, 255)}
+#m{color: #abbd81}
+#e{color: #f8b26a}*/
+
 #a:hover{color: aliceblue ;scale: 1.1; rotate: 10deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
 #s:hover{color: aliceblue; scale: 1.1; rotate: -20deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
 #k:hover{color:  aliceblue; scale: 1.1; rotate: 5deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
@@ -240,7 +247,12 @@ body{
     visibility: hidden;
     display: none;
 }*/
+#load{
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
 
+}
 
 
 /* ===============================================================*/
