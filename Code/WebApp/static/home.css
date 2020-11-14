@@ -142,7 +142,7 @@ body{
     margin-top: 130px;
     
 }
-#a{color: rgb(171, 53, 187)}
+#a{color: rgb(172, 71, 186)}
 #s{color: rgb(221, 83, 83)}
 #k{color: rgb(92, 197, 245)}
 #d{color: rgb(255, 255, 255)}
@@ -221,11 +221,18 @@ body{
 #context{
     margin: 0;
     padding-bottom: 20px;
+    overflow-y: scroll;
+    max-height: 150px;
+    scrollbar-color: rgb(66, 110, 255) #383b41;
+    scrollbar-width: thin;
+    
     
 }
 #URL{
     color: rgb(66, 110, 255);
     text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 .showButton{
     display: block;
