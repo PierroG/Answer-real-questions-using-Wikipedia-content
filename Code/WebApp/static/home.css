@@ -378,11 +378,11 @@ h3{
     margin: 0 15px;
     margin-bottom: 80px;
     width: 230px;
-    height: 400px;
+    height: 380px;
     flex-wrap: wrap;
     box-sizing: border-box;
     border-radius: 12px;
-    background: linear-gradient(-45deg, #00cca3, #4d79ff);4d79ff
+    background: linear-gradient(-45deg, #4d79ff, #52c752); /* #52c752 #00cca3 #4d79ff  */
     /*background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5);*/
     /*animation: anime 8s linear infinite alternate;
     background-size: 200%;*/
@@ -403,7 +403,7 @@ h3{
     margin: 0 15px;
     margin-bottom: 80px;
     width: 230px;
-    height: 400px;
+    height: 380px;
     flex-wrap: wrap;
     box-sizing: border-box;
     border-radius: 12px;
@@ -422,7 +422,7 @@ h3{
     margin: 0 15px;
     margin-bottom: 80px;
     width: 230px;
-    height: 400px;
+    height: 380px;
     flex-wrap: wrap;
     box-sizing: border-box;
     border-radius: 12px;
@@ -439,15 +439,16 @@ h3{
 .MemberID h3 {
     color: aliceblue;
     text-align: center;
+    margin-top: 10px;
 }
 
 .MemberDescription{
     color: aliceblue;
     display: block;
     text-align: center;
-    margin-top: 10px;
-    font-size: 90%;
-    padding: 15px;
+    margin-top: -20px;
+    font-size: 76%;
+    padding: 18px;
 }
 
 .MemberPicture{
