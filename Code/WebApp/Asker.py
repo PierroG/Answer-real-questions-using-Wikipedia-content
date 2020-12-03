@@ -26,7 +26,7 @@ class ask:
 
     def generateAnswer(self, question, answer_text):
         # == Tokenize == Apply the tokenizer to the input text, treating them as a text-pair. (CPU)
-        input_ids = self.tokenizer.encode(question, answer_text)
+        input_ids = self.tokenizer.encode(question, answer_text, add_special_tokens=True)
         tokens = self.tokenizer.convert_ids_to_tokens(input_ids)
         # == Set Segment IDs == Search the input_ids for the first instance of the `[SEP]` token.
         sep_index = input_ids.index(self.tokenizer.sep_token_id)
