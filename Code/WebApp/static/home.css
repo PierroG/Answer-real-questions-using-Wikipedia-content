@@ -143,7 +143,7 @@ body{
 }*/
 .t{
     display: inline-block;
-    transition: 2s;
+    transition: 1s;
 }
 .tt{
     display: inline-block;
@@ -198,12 +198,12 @@ body{
 #m{color: rgb(83, 221, 90)}
 #e{color: rgb(218, 180, 75)}
 
-#a:hover{color: aliceblue ;transform: translate(0px,-15px); transition: 0.1s;}
-#s:hover{color: aliceblue; transform: translate(0px,-15px); transition: 0.1s;}
-#k:hover{color:  aliceblue; transform: translate(0px,-15px); transition: 0.1s;}
-#d:hover{color: aliceblue; transform: translate(0px,-15px); transition: 0.1s;}
-#m:hover{color: aliceblue; transform: translate(0px,-15px); transition: 0.1s;}
-#e:hover{color:  aliceblue; transform: translate(0px,-15px); transition: 0.1s;}
+#a:hover{color: aliceblue ; transform: rotate(-5deg) scale(1.1); transition: 0.1s;}
+#s:hover{color: aliceblue; transform:  scale(1.1); transition: 0.1s;}
+#k:hover{color:  aliceblue; transform: rotate(5deg) scale(1.1); transition: 0.1s;}
+#d:hover{color: aliceblue; transform: scale(1.1); transition: 0.1s;}
+#m:hover{color: aliceblue; transform: rotate(5deg) scale(1.1); transition: 0.1s;}
+#e:hover{color:  aliceblue; transform: rotate(-5deg) scale(1.1); transition: 0.1s;}
 /*
 #a:hover{color: aliceblue ;scale: 1.1; rotate: 10deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
 #s:hover{color: aliceblue; scale: 1.1; rotate: -20deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
@@ -292,12 +292,27 @@ body{
     background: none;
     border: none;
     color: rgb(66, 110, 255);
-    font: 18px 'Arial';
-    
+    font: 18px 'Arial';  
 }
 #showButton:hover{
     cursor: pointer;
 }
+#changeButton{
+    background: none;
+    border: none;
+    color: rgb(66, 110, 255);
+    font: 18px 'Arial';  
+}
+#changeButton:hover{
+    cursor: pointer;
+}
+/*#thumb{
+	float:right;
+	position: relative;
+	top: -75px;
+	right: 20px;
+	font-size: 32px;
+}*/
 /*#search:hover + #ans{
     border: 2px solid rgb(177, 177, 177);
     visibility: hidden;

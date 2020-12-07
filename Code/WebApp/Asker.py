@@ -186,8 +186,15 @@ class ask:
             
             max_value = max(scores)
         
-            index = scores.index(max_value)
-            return answers[index], paragraph[index], page.fullurl
+            #index = scores.index(max_value)
+            #return answers[index], paragraph[index], page.fullurl
+
+            top = sorted(scores, reverse=True)[:3]
+            index = [scores.index(i) for i in top]
+            answer = [answers[i] for i in index]
+            context = [paragraph[i] for i in index]
+            return answer, context, page.fullurl
+            
         else : 
         	   return("Your question doesn't seem to correspond to a specific subject. Could you try to reformulate ?", "No Wikipedia page found", "")
 
