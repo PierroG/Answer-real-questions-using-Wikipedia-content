@@ -113,22 +113,34 @@
     <div class="AnswerBox">
         <img src="static/img/loading.gif" id="load" style="display:none;">
       	{% if answer %}
-      		<p id="answer" style="display:block;">{{ answer.0 }}</p>
+          	{% if isStr == True %}
+          		<p id="answer" style="display:block;">{{ answer }}</p>
+      		{% else %}
+          		<p id="answer" style="display:block;">{{ answer.0 }}</p>
+      		{% endif %}
       	{% endif %}
-  		
     </div>
+    
     <div class='ContextBox'>
-    	{% if answer %}
-      <p id="context" style="display:none;">{{ context.0 }}</p>
-      <!--<button id='thumb' onclick="" >👍👎</button>-->
-      <a href="{{ url }}" target="_blank" id='URL' style="display:none;">{{ url }}</a>
-      <div class="showButton">
-        <button id='showButton' onclick="HideShow()" >Show Details</button>
-        <button id='changeButton' onclick="ChangeAnswer()" >Change Answer </button>
-      </div>
-      {% endif %}
-      
+        {% if answer %}
+            {% if isStr == True %}
+            <p id="context" style="display:none;">{{ context }}</p>
+            {% else %}
+            <p id="context" style="display:none;">{{ context.0 }}</p>
+            {% endif %}
+        <!--<button id='thumb' onclick="" >👍👎</button>-->
+        <a href="{{ url }}" target="_blank" id='URL' style="display:none;">{{ url }}</a>
+        <div class="showButton">
+            <button id='showButton' onclick="HideShow()" >Show Details</button>
+            {% if isStr == False %}
+            <button id='changeButton' onclick="ChangeAnswer()" >Change Answer </button>
+            {% else %}
+            <button id='changeButton' onclick="" style="display:none;" >Change Answer </button>
+            {% endif %}
+        </div>
+        {% endif %}
     </div>
+    
 <!-------------------------------------------------------------------------------------->
     <!--  https://loading.io/ -->
     <div class="titleAbout">
