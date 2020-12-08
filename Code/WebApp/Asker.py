@@ -7,6 +7,7 @@ import en_core_web_sm
 import wikipedia
 import wikipediaapi
 from nltk.tokenize import word_tokenize
+from langdetect import detect
 
 
 class ask:
@@ -42,42 +43,49 @@ class ask:
         #move tensor to device
         input_ids_tensor = torch.tensor([input_ids]).to(self.device)
         segment_ids_tensor = torch.tensor([segment_ids]).to(self.device)
-    
-        start_scores, end_scores = self.model(input_ids_tensor, # The tokens representing our input text.
+        
+        try:
+            start_scores, end_scores = self.model(input_ids_tensor, # TheSSSS tokens representing our input text.
                                  token_type_ids=segment_ids_tensor) # The segment IDs to differentiate question from 
-        # Find the tokens with the highest `start` and `end` scores.
-        answer_start = torch.argmax(start_scores)
-        answer_end = torch.argmax(end_scores)
-        # get score
-        start_score = float(start_scores[0,answer_start])
-        end_score = float(end_scores[0,answer_end])
+            
+            # Find the tokens with the highest `start` and `end` scores.
+            answer_start = torch.argmax(start_scores)
+            answer_end = torch.argmax(end_scores)
+            # get score
+            start_score = float(start_scores[0,answer_start])
+            end_score = float(end_scores[0,answer_end])
+        
+        
+            # == Print Answer without ## ==
+            # Start with the first token.
+            answer = tokens[answer_start]
     
-    
-        # == Print Answer without ## ==
-        # Start with the first token.
-        answer = tokens[answer_start]
+            # Select the remaining answer tokens and join them with whitespace.
+            for i in range(answer_start + 1, answer_end + 1):
+        
+                # If it's a subword token, then recombine it with the previous token.
+                if tokens[i][0:2] == '##':
+                    answer += tokens[i][2:]
+        
+                # Otherwise, add a space then the token.
+                else:
+                    answer += ' ' + tokens[i]
 
-        # Select the remaining answer tokens and join them with whitespace.
-        for i in range(answer_start + 1, answer_end + 1):
+            return answer, start_score+end_score
     
-            # If it's a subword token, then recombine it with the previous token.
-            if tokens[i][0:2] == '##':
-                answer += tokens[i][2:]
-    
-            # Otherwise, add a space then the token.
-            else:
-                answer += ' ' + tokens[i]
+        except RuntimeError:
+            return "", 0
 
-        return answer, start_score+end_score
-
-    def extract_subject_with_spacy(self, question):
+    def extract_subject_with_spacy(self, question, lang):
     
         #question = truecase.get_true_case(question) #le truecaser est un peu bidon j'ai l'impression
         #print(question)
         
         subject_dict = {'subject' : '', 'infos' : []} #dictionnaire qui contiendra le sujet, et les infos complémentaires
-        
-        osef_list = ['who','why','what','when','which','how', 'Who','Why','What','When','Which', 'How'] #noun to not take into account
+        if (lang == "fr"):
+            osef_list = ['qui','pourquoi','quoi','quand','quel','quelle','comment','où','Qui','Pourquoi','Quoi','Quand','Quel','Quelle','Comment']
+        else:
+            osef_list = ['who','why','what','when','which','how', 'Who','Why','What','When','Which','How'] #noun to not take into account
         doc = self.nlp(question)
         
         #on prépare une liste des noms communs (ou plus précisent chunks, qui peuvent être des groupes nominaux plus larges, des unités de sens) de la question
@@ -273,6 +281,13 @@ class ask:
                     if word.text in personal_words : 
                         is_personal = True
         return(is_personal)
+    
+    def language_detection(self, question):
+        if (question != ""):
+            lang = detect(question)
+            wikipedia.set_lang(lang)
+            self.wiki = wikipediaapi.Wikipedia(language=lang)
+        return lang
 
     def predifined_answer (self, question) : #to compute the predifined answer given the question type
         
@@ -314,7 +329,8 @@ class ask:
         if isSpecial : 
             return(specialAnswer, details, url)    
         else : 
-            sujet = self.extract_subject_with_spacy(question)
+            lang = self.language_detection(question)
+            sujet = self.extract_subject_with_spacy(question, lang)
             if sujet['subject'] == "": 
                 return("Your question doesn't seem to correspond to a specific subject. Could you try to reformulate ?", "No Wikipedia page found","")
             else: 
