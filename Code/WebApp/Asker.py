@@ -204,7 +204,7 @@ class ask:
             return answer, context, page.fullurl
             
         else : 
-        	   return("Your question doesn't seem to correspond to a specific subject. Could you try to reformulate ?", "No Wikipedia page found", "")
+               return("Your question doesn't seem to correspond to a specific subject. Could you try to reformulate ?", "No Wikipedia page found", "")
 
     def is_wh (self, question) : 
         doc = self.nlp(question)
@@ -271,15 +271,22 @@ class ask:
         words = [word for word in doc]
         personal_words = ['I', 'i', 'My', 'my', 'Me', 'me', 'Myself', 'myself']
         is_personal = False
+        in_quotes = False
         if doc.ents == () : 
             for word in words : 
-                if word.text in personal_words : 
+                if word.text in personal_words and in_quotes == False : 
                     is_personal = True
+                in_quotes = False
+                if word.text == '"' : 
+                    in_quotes = True
         else : 
             for ent in doc.ents : 
                 for word in words : 
-                    if word.text in personal_words : 
+                    if word.text in personal_words and in_quotes == False : 
                         is_personal = True
+                    in_quotes = False
+                    if word.text == '"' :
+                        in_quotes = False
         return(is_personal)
     
     def language_detection(self, question):
