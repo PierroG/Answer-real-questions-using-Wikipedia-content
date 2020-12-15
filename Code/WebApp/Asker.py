@@ -326,7 +326,7 @@ class ask:
         elif self.is_toapp(question) : 
             return(True, "Are you trying to get information that concerns me ? I’m shy, so I won’t answer, sorry … Maybe you should try asking some general knowledge questions !",
                    "If you want to know more about me or my creators :",
-                   "LIEN VERS LE ABOUT US")
+                   "https://ask-me.azurewebsites.net/#about")
         else : 
             return(False, None, None, None)
 
