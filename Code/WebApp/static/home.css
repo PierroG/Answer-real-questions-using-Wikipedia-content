@@ -24,9 +24,6 @@ Thx to : https://webdesign.tutsplus.com/tutorials/css-experiments-with-a-search-
     margin-left: 65px;
     width: 680px;
     outline: none;
-    /*box-shadow: 0 0 0pt 1.5px rgb(66, 110, 255);*/
-    
-    /* box-shadow: 3px 3px #1e1e1f; */
 }
 /* == Default Bar == */
 .container input#search{
@@ -102,6 +99,16 @@ Thx to : https://webdesign.tutsplus.com/tutorials/css-experiments-with-a-search-
     transition: 0.2s;
     background: rgb(66, 110, 255)!important;
     cursor: pointer;
+
+    
+}
+
+button.icon.hover{
+    transition: 0.2s;
+    background: rgb(66, 110, 255)!important;
+    cursor: pointer;
+    color: aliceblue;
+    
     
 }
 
