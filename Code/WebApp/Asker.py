@@ -296,10 +296,10 @@ class ask:
             self.wiki = wikipediaapi.Wikipedia(language=lang)
         return lang
 
-    def predifined_answer (self, question) : #to compute the predifined answer given the question type
+    def predifined_answer (self, question, lang) : #to compute the predifined answer given the question type
         
         if self.is_polar(question) :
-            sujet = self.extract_subject_with_spacy(question)
+            sujet = self.extract_subject_with_spacy(question, lang)
             a, p, u = self.get_best_answer(question, sujet['subject'])
             
             if not u : 
@@ -332,11 +332,11 @@ class ask:
 
 
     def run(self, question):
-        isSpecial, specialAnswer, details, url = self.predifined_answer(question)
+        lang = self.language_detection(question)
+        isSpecial, specialAnswer, details, url = self.predifined_answer(question, lang)
         if isSpecial : 
             return(specialAnswer, details, url)    
         else : 
-            lang = self.language_detection(question)
             sujet = self.extract_subject_with_spacy(question, lang)
             if sujet['subject'] == "": 
                 return("Your question doesn't seem to correspond to a specific subject. Could you try to reformulate ?", "No Wikipedia page found","")
