@@ -6,6 +6,8 @@ import spacy
 import en_core_web_sm
 import wikipedia
 import wikipediaapi
+import nltk
+#nltk.download("punkt")
 from nltk.tokenize import word_tokenize
 from langdetect import detect
 
@@ -290,6 +292,7 @@ class ask:
         return(is_personal)
     
     def language_detection(self, question):
+        lang = "en"
         if (question != ""):
             lang = detect(question)
             wikipedia.set_lang(lang)
@@ -308,7 +311,7 @@ class ask:
                    "Maybe you should check that Wikipedia link.",
                    u )
         elif self.is_pseudocleft(question) :
-            sujet = self.extract_subject_with_spacy(question)
+            sujet = self.extract_subject_with_spacy(question, lang)
             a, p, u = self.get_best_answer(question, sujet['subject'])
             if not u : 
                 u = "Sorry, we couldn't find any Wikipedia article related to your question."
