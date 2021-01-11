@@ -1,4 +1,4 @@
-BERT Arxiv article : https://arxiv.org/pdf/1810.04805.pdf
+Additional references :
 BERT with transformers libraries : https://mccormickml.com/2020/03/10/question-answering-with-a-fine-tuned-BERT/#part-2-example-code
 Wikipedia API quickstart : https://wikipedia.readthedocs.io/en/latest/quickstart.html#quickstart
 Kaggle Subject : https://www.kaggle.com/c/tensorflow2-question-answering/data?select=simplified-nq-test.jsonl
