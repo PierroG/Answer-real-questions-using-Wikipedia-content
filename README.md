@@ -2,7 +2,7 @@
 
 Student exploration of Question Answering.
 
-Our project aims to answer general knowledge questions by using a BERT model pretrained on SQuAD.
+Our project aims to answer general knowledge questions by using a BERT model pretrained on SQuAD, and Wikipedia data.
 
 The pipeline can be summed-up in 3 essential steps : 
 - Subject extraction
