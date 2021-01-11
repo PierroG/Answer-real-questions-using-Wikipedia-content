@@ -2,7 +2,7 @@
 
 Student exploration of Question Answering.
 
-Our project aims to answer general knowledge questions by using Wikipedia data and the following BERT model pre-trained on SQuAD :
+Our project aims to answer general knowledge questions by using Wikipedia data and the following BERT model pre-trained on SQuAD :<br/>
 bert-large-uncased-whole-word-masking-finetuned-squad.
 
 this model is available here : https://huggingface.co/bert-large-uncased-whole-word-masking-finetuned-squad
