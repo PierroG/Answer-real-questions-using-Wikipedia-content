@@ -1,0 +1,517 @@
+
+/*
+==== Search Bar ====
+Thx to : https://webdesign.tutsplus.com/tutorials/css-experiments-with-a-search-form-input-and-button--cms-22069
+*/
+.container{
+    
+    /*overflow: hidden;*/
+    width: 800px;
+   
+    vertical-align: middle;
+    white-space: nowrap;
+    
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    
+}
+/* == Focus Bar == */
+.container input#search:focus{
+    transition: width 0.2s, margin-left 0.2s;
+    box-shadow: none!important;
+    border: 2px solid rgb(66, 110, 255);
+    margin-left: 65px;
+    width: 680px;
+    outline: none;
+}
+/* == Default Bar == */
+.container input#search{
+    transition: width 0.5s, margin-left 0.5s;
+    border: 2px solid transparent;
+    margin-left: 75px;
+    width: 650px;
+    height: 50px;
+    background: #383b41;
+    font-size: 18pt;
+    float: left;
+    font: normal 18px 'Comfortaa', cursive;
+    color: aliceblue;
+    padding-right: 60px;
+    padding-left: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 40px;
+}
+.container input#search{
+    color: aliceblue;
+}
+.container button.icon{
+    border: 2px solid transparent;
+    border-left: none;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    /*outline: 5px solid aliceblue;*/
+ 
+    background: #383b41;
+    height: 50px;
+    width: 50px;
+    color: #65737e;
+    opacity: 1;
+    font-size: 10pt;
+    margin-left: -50px;
+    /*transition: all .55s ease;*/
+    font-size: 20px;
+    transition: background-color 0.4s;
+} 
+.container:hover button.icon, .container:active button.icon, .container:focus button.icon{
+    /*outline: none;*/
+    opacity: 1;
+    color: aliceblue;
+    background-color: #4f525a;
+    border-left: none;
+    
+}
+#ic{
+    transition: 0.4s;
+}
+#search::placeholder{
+    color: #8d91a3;
+}
+#search:focus + .icon{
+    opacity: 1;
+    border: 2px solid rgb(66, 110, 255);
+    background-color: #4f525a;
+    border-left: none;
+    /*background: rgb(66, 110, 255);*/
+    color: aliceblue;   
+}
+#search:focus + a{
+    display: none;
+}
+.container input#search:hover{
+    box-shadow: 0 0 10px 3px rgb(33, 33, 36);
+    
+}
+
+ 
+.container:hover button.icon:hover{
+    transition: 0.2s;
+    background: rgb(66, 110, 255)!important;
+    cursor: pointer;
+
+    
+}
+
+button.icon.hover{
+    transition: 0.2s;
+    background: rgb(66, 110, 255)!important;
+    cursor: pointer;
+    color: aliceblue;
+    
+    
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+
+
+
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #272a30;/*272a30*/
+    /*overflow: hidden;*/
+    
+}
+.Title{
+    color: aliceblue;
+    font: bold 70px 'Comfortaa', cursive;
+    width: 100%;
+    height: 300px;
+    text-align:center;
+    display:block;   
+}
+/*.t{
+    display: inline-block;
+    transition: 2s;
+    cursor: help;
+    margin-bottom: 0;
+    margin-top: 130px;
+    
+}*/
+.t{
+    display: inline-block;
+    transition: 1s;
+}
+.tt{
+    display: inline-block;
+    /*color: white;*/
+    transition: 2s;
+    cursor: help;
+    margin-bottom: 0;
+    margin-top: 50px;
+    
+    background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5, #f0e83c,#FFA63D, #FF3D77, #338AFF, #3CF0C5, #f0e83c, #ffa63d);
+    /*background: linear-gradient(42deg, rgba(255,166,61,1) 0%, rgba(255,61,119,1) 9%, rgba(51,138,255,1) 18%, rgba(60,240,197,1) 27%, rgba(240,232,60,1) 36%, rgba(255,166,61,1) 45%, rgba(255,61,119,1) 54%, rgba(51,138,255,1) 63%, rgba(60,240,197,1) 72%, rgba(240,232,60,1) 81%, rgba(255,166,61,1) 90%);*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: anime 15s linear infinite alternate;
+    background-size: 600%;
+}
+.tt2{
+    position: relative;
+    top: -390px;
+    /*color: white;*/
+    transition: 2s;
+    cursor: help;
+    margin-bottom: 0;
+    margin-top: 50px;
+    
+    background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5, #f0e83c,#FFA63D, #FF3D77, #338AFF, #3CF0C5, #f0e83c, #ffa63d);
+    /*background: linear-gradient(42deg, rgba(255,166,61,1) 0%, rgba(255,61,119,1) 9%, rgba(51,138,255,1) 18%, rgba(60,240,197,1) 27%, rgba(240,232,60,1) 36%, rgba(255,166,61,1) 45%, rgba(255,61,119,1) 54%, rgba(51,138,255,1) 63%, rgba(60,240,197,1) 72%, rgba(240,232,60,1) 81%, rgba(255,166,61,1) 90%);*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: anime 10s linear infinite alternate;
+    background-size: 400%;
+
+    filter: blur(20px);
+    opacity: 0.8;
+    z-index: -1;
+}
+@keyframes anime{
+    from {
+    background-position: 0%;
+    }
+
+    to {
+    background-position: 100%;
+    }
+}
+#a{color: rgb(172, 71, 186)}
+#s{color: rgb(221, 83, 83)}
+#k{color: rgb(92, 197, 245)}
+#d{color: rgb(255, 255, 255)}
+#m{color: rgb(83, 221, 90)}
+#e{color: rgb(218, 180, 75)}
+
+#a:hover{color: aliceblue ; transform: rotate(-5deg) scale(1.1); transition: 0.1s;}
+#s:hover{color: aliceblue; transform:  scale(1.1); transition: 0.1s;}
+#k:hover{color:  aliceblue; transform: rotate(5deg) scale(1.1); transition: 0.1s;}
+#d:hover{color: aliceblue; transform: scale(1.1); transition: 0.1s;}
+#m:hover{color: aliceblue; transform: rotate(5deg) scale(1.1); transition: 0.1s;}
+#e:hover{color:  aliceblue; transform: rotate(-5deg) scale(1.1); transition: 0.1s;}
+/*
+#a:hover{color: aliceblue ;scale: 1.1; rotate: 10deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
+#s:hover{color: aliceblue; scale: 1.1; rotate: -20deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
+#k:hover{color:  aliceblue; scale: 1.1; rotate: 5deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
+#d:hover{color: aliceblue; scale: 1.1; rotate: 0deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
+#m:hover{color: aliceblue; scale: 1.1; rotate: 10deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
+#e:hover{color:  aliceblue; scale: 1.1; rotate: -10deg; text-shadow: 5px 5px #1e1e1f; transition: 0.1s;}
+*/
+.topnav{
+     /* Position the navbar at the top of the page */
+    width: 100%; 
+    position: fixed;
+}
+.topnav a {
+    outline: none;
+    /*float: right;
+    display: block;*/
+    color: aliceblue;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    /*font-size: 28px;*/
+    font: normal 24px 'Comfortaa', cursive;
+    transition: 0.4s;
+}
+  
+  /* Change the color of links on hover */
+.topnav a:hover {
+    color: rgb(66, 110, 255);
+
+    transition: 0.1s;
+    /*text-shadow: 3px 3px #1e1e1f;*/
+
+}
+
+  /* Style the "active" element to highlight the current page */
+.topnav a:active {
+    color: #1378d6;
+}
+
+
+
+.AnswerBox{
+    padding-top: 40px;
+    height: 100px;
+    width: 650px;
+    margin: auto;
+    color: aliceblue;
+    font: 21px 'Comfortaa', cursive;
+    align-items: center;
+    text-align: center;
+}
+
+.ContextBox{
+    height: 250px;
+    width: 650px;
+    margin: auto;
+    align-items: center;
+    color: aliceblue;
+    font: 16px 'Comfortaa', cursive;
+
+   
+}
+#context{
+    margin: 0;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+    max-height: 150px;
+    scrollbar-color: rgb(66, 110, 255) #383b41;
+    scrollbar-width: thin;
+    
+    
+}
+#URL{
+    color: rgb(66, 110, 255);
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.showButton{
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+#showButton{
+    background: none;
+    border: none;
+    color: rgb(66, 110, 255);
+    font: 18px 'Arial';  
+}
+#showButton:hover{
+    cursor: pointer;
+}
+#changeButton{
+    background: none;
+    border: none;
+    color: rgb(66, 110, 255);
+    font: 18px 'Arial';  
+}
+#changeButton:hover{
+    cursor: pointer;
+}
+/*#thumb{
+	float:right;
+	position: relative;
+	top: -75px;
+	right: 20px;
+	font-size: 32px;
+}*/
+/*#search:hover + #ans{
+    border: 2px solid rgb(177, 177, 177);
+    visibility: hidden;
+    display: none;
+}*/
+#load{
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* ===============================================================*/
+
+
+/*
+h3{
+    font-size: 30px;
+}
+*/
+
+.titleAbout{
+    font: bold 20px 'Comfortaa', cursive;
+    display: block;
+    font-size: xx-large;
+    text-align: center;
+    position: center;
+    color: aliceblue;
+}
+
+.AboutBox{
+    font: bold 20px 'Comfortaa', cursive;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: top;
+}
+
+.AboutProject{
+    float: center;
+    color: aliceblue;
+    padding: 15px 15px 15px 40px;
+    text-align: justify;
+    max-width: 600px; 
+}
+
+.AboutProjecth2 {
+    text-align: center;
+}
+
+.AboutTeam{
+    max-width: 1000px;
+    position: relative;
+    padding-top: 15px; 
+}
+
+.AboutTeamh2 {
+    text-align: center;
+    color: aliceblue;
+}
+
+.ProjectDescription{
+    padding-right: 30px;
+    text-align: justify;
+    font-size: 18px;
+}
+
+.TeamMembers{
+    display: inline-flex;
+    /*background: linear-gradient(-45deg, #9a4eff, #24ff72);*/
+
+}
+
+
+/* Axel */
+.TeamMember1{
+    margin: 0 15px;
+    margin-bottom: 80px;
+    width: 230px;
+    height: 380px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: linear-gradient(-45deg, #4d79ff, #52c752); /* #52c752 #00cca3 #4d79ff  */
+    /*background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5);*/
+    /*animation: anime 8s linear infinite alternate;
+    background-size: 200%;*/
+
+    border-top-left-radius: 50px;
+    transition: 0.1s;
+
+    
+}
+.TeamMember1:hover{
+    scale:1.03;
+    transform: translate(0px,-10px);
+    transition: 0.1s;
+}
+
+/* Pierre */
+.TeamMember2{
+    margin: 0 15px;
+    margin-bottom: 80px;
+    width: 230px;
+    height: 380px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: linear-gradient(-45deg, #FF3D77, #ff9e3d);
+    
+    border-top-left-radius: 50px;
+    transition: 0.1s;
+}
+.TeamMember2:hover{
+    scale:1.03;
+    transform: translate(0px,-10px);
+    transition: 0.1s;
+}
+/* Frédéric */
+.TeamMember3{
+    margin: 0 15px;
+    margin-bottom: 80px;
+    width: 230px;
+    height: 380px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: linear-gradient(-45deg, #9e3dff, #ff3d6e);
+    
+    border-top-left-radius: 50px;
+    transition: 0.1s;
+}
+.TeamMember3:hover{
+    scale:1.03;
+    transform: translate(0px,-10px);
+    transition: 0.1s;
+}
+.MemberID h3 {
+    color: aliceblue;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.MemberDescription{
+    color: aliceblue;
+    display: block;
+    text-align: center;
+    margin-top: -20px;
+    font-size: 76%;
+    padding: 18px;
+}
+
+.MemberPicture{
+    width: 100px;
+    height: 100px;
+    background-size: 100px 100px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-radius: 100px;
+    
+}
+
+#Axelpicture{
+    background-image: url("img/Ax.jpg");
+    border-color: #2E8B57;
+    background-repeat: no-repeat;
+}
+
+#Pierropicture{
+    background-image: url("img/pierro.jpg");
+    border-color: #191970;
+    background-repeat: no-repeat;
+}
+
+#Fredpicture{
+    background-image: url("img/fred.jpg");
+    border-color: #7b363f;
+    background-repeat: no-repeat;
+}
+
+#linkedin{
+    height: 40px;
+    width: 40px;
+    margin-left: 43px;
+    margin-top: 37px;
+    background-image: url("img/linkedin_logo.png");
+    background-size: 40px;
+    box-shadow: 2px 2px 6px gray;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.picturealign{
+    display: inline-flex;
+}

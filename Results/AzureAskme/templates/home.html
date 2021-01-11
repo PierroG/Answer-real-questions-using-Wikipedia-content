@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8" />
+  <title>Ask me</title>
+  <link rel="icon" type="image/png" href="static/img/emoticon.png">
+  <link type="text/css" rel="stylesheet"
+        href="{{ url_for('static',
+              filename='home.css')}}" />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  
+  <div class ="topnav">
+    <a href="#home" id='test'>Home</a>
+    <a href="#about" id ='test'>About</a>
+    <a href="#home" onclick="return startDemo()" id ='test'>Demo</a><!-- "startDemo();return false;" -->
+  </div>
+    
+    <div id="home"></div>
+    <div class=Title>
+      <!--<h1>Ask.me</h1>-->
+
+      <!--<h1 class="t" id="a" >A</h1><h1 class="t" id="s">s</h1><h1 class="t" id="k">k</h1><h1 class="t" id="d">.</h1><h1 class="t" id="m">m</h1><h1 class="t" id="e">e</h1>
+    </div>-->
+  
+    <div class="tt">
+      <h1 class="t" id="a" >A</h1><h1 class="t" id="s">s</h1><h1 class="t" id="k">k</h1><h1 class="t" id="d">.</h1><h1 class="t" id="m">m</h1><h1 class="t" id="e">e</h1>
+      </div>
+      <div class="tt2">
+      <!--<h1 class="t" id="a" >A</h1><h1 class="t" id="s">s</h1><h1 class="t" id="k">k</h1><h1 class="t" id="d">.</h1><h1 class="t" id="m">m</h1><h1 class="t" id="e">e</h1>-->
+    </div>
+    </div>
+    <!--
+    <form class="SearchBox" action="/" method="POST">
+      <input id="search" type="text" placeholder="Ask me a question ..." name="search">
+      <button id="ask" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    -->
+
+
+    <div class="box">
+        <form class="container" id="searchForm" action="/" method="POST">
+          {% if question %}
+          <input type="search" id="search" placeholder="What do you want to know ?" value="{{ question }}" name="search">
+          {% else %}
+          <input type="search" id="search" placeholder="What do you want to know ?" name="search">
+          {% endif %}
+          <button class="icon" id="icon" onclick="ShowLoading()" type="submit"><i id="ic" class="fa fa-search"></i></button>
+        </form>
+      
+    </div>
+    
+    <script>
+      function HideShow() {
+        var x = document.getElementById("context");
+        var b = document.getElementById("showButton");
+        var u = document.getElementById("URL");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+          u.style.display = "block";
+          b.innerHTML = "Hide Details"
+        } else {
+          x.style.display = "none";
+          u.style.display = "none";
+          b.innerHTML = "Show Details"
+        }
+      }
+      function ShowLoading() {
+        var x = document.getElementById("load");
+        var c = document.getElementById("context");
+        var b = document.getElementById("showButton");
+        var b2 = document.getElementById("changeButton");
+        var u = document.getElementById("URL");
+        var a = document.getElementById("answer");
+        x.style.display = "block";
+        c.style.display = "none";
+        b.style.display = "none";
+        b2.style.display = "none";
+        u.style.display = "none";
+        a.style.display = "none";
+
+      }
+      
+      var i = 0;
+      var txt = 'What sport did Maurice Herzog practice?';
+      var speed = 50;
+
+      function startDemo(){
+        s = document.getElementById("search");
+        
+        s.value = "";
+        setTimeout(typeWriter, 350);
+        
+      }
+
+      function typeWriter() {
+        if (i < txt.length) {
+          //document.getElementById("demo").innerHTML += txt.charAt(i);
+          document.getElementById("search").value += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+        if (i == txt.length) {
+          setTimeout(hov, 400);
+          
+        }
+      }
+      function hov() {
+        b = document.getElementById("icon");
+        b.classList.add('hover');
+        setTimeout(sub, 50);
+      }
+      function sub() {
+        document.getElementById("searchForm").submit();
+        ShowLoading();
+      } 
+      </script>
+
+      
+    </script>
+    {% if answer %}
+    <script>
+      var rep = 1
+      function ChangeAnswer() {
+        var answer = document.getElementById("answer");
+        var context = document.getElementById("context");
+        if(rep == 1){
+          answer.innerHTML = '{{ answer.1 }}';
+          context.innerHTML = '{{ context.1 }}';
+          rep = 2;
+        }
+        else if(rep == 2){
+          answer.innerHTML = '{{ answer.2 }}';
+          context.innerHTML = '{{ context.2 }}';
+          rep = 3;
+        }
+        else if(rep == 3){
+          answer.innerHTML = '{{ answer.0 }}';
+          context.innerHTML = '{{ context.0 }}';
+          rep = 1;
+
+        }
+      }
+    </script>
+    {% endif %}
+
+
+    <div class="AnswerBox">
+        <img src="static/img/loading.gif" id="load" style="display:none;">
+      	{% if answer %}
+          	{% if isStr == True %}
+          		<p id="answer" style="display:block;">{{ answer }}</p>
+      		{% else %}
+          		<p id="answer" style="display:block;">{{ answer.0 }}</p>
+      		{% endif %}
+      	{% endif %}
+    </div>
+    
+    <div class='ContextBox'>
+        {% if answer %}
+            {% if isStr == True %}
+            <p id="context" style="display:none;">{{ context }}</p>
+            {% else %}
+            <p id="context" style="display:none;">{{ context.0 }}</p>
+            {% endif %}
+        <!--<button id='thumb' onclick="" >👍👎</button>-->
+        <a href="{{ url }}" target="_blank" id='URL' style="display:none;">{{ url }}</a>
+        <div class="showButton">
+            <button id='showButton' onclick="HideShow()" >Show Details</button>
+            {% if isStr == False %}
+            <button id='changeButton' onclick="ChangeAnswer()" >Change Answer </button>
+            {% else %}
+            <button id='changeButton' onclick="" style="display:none;" >Change Answer </button>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    
+<!-------------------------------------------------------------------------------------->
+    <!--  https://loading.io/ -->
+    <div class="titleAbout">
+      <!--<h2 id=>🧐</h2>-->
+      <img class="emo" style="width: 50px; margin-top: 200px;"src="static/img/emoticon.png">
+      <h2>About us</h2>
+    </div>
+
+    <div class="AboutBox" id="about">
+      
+        <div class="AboutProject">
+          <div class="AboutProjecth2">
+            <h2>Project</h2>
+          </div>
+
+          <div class="ProjectDescription">
+            Askme is a Question Answering model built on the Stanford Question Answering Dataset (SQuAD) with a fine-tuned BERT. Askme is able to automatically answer factual questions without being aware of the context. He will find the information in Wikipedia and take the possible best answer. He understands several languages but sometimes he misunderstands the question so be lenient with him.
+            To try it, just type a question on the search bar. <br><br>
+            Question Answering is a computer science discipline within the fields of information retrieval and natural language processing (NLP). We created this application as part of our Software project during our 2nd year of MSc Degree in Natural Language Processing. <br><br>
+            Libraries : Pytorch, Transformers, NLTK, SpaCy, BERT, Wikipedia API, langdetect, Flask framework. <br><br>
+            M2 NLP - Université de Lorraine - 2020
+          </div>
+        </div>
+
+        <div class="AboutTeam">
+          <div class="AboutTeamh2">
+            <h2>Team</h2>
+          </div>
+
+          <div class="TeamMembers">
+
+            <div class="TeamMember1">
+              <div class="MemberID">
+                <div class="picturealign">
+                  <div class="MemberPicture" id="Axelpicture"></div>
+                  
+                  <div class="MemberLinkedIn">
+                  <a href="https://www.linkedin.com/in/didier-xdt/" target="_blank" rel="noopener noreferrer">
+                      <div class="icon" id="linkedin"></div>
+                  </a>
+                  </div>
+
+                </div>
+
+                <h3>Axel Didier</h3>
+                <div class="MemberDescription">
+                  French computer scientist with a passion for innovation and fields such as Artifical Intelligence and Data. I'm pursuing a MSc in Natural language Processing (NLP) to expand my knowledge and play my part in this inter-disciplinary field.
+                </div>
+
+              </div>
+            </div>
+
+            <div class="TeamMember2">
+              <div class="MemberID">
+                <div class="picturealign">
+                  <div class="MemberPicture" id="Pierropicture"></div>
+                  
+                  <div class="MemberLinkedIn">
+                  <a href="https://www.linkedin.com/in/pierre-g/" target="_blank" rel="noopener noreferrer">
+                      <div class="icon" id="linkedin"></div>
+                  </a>
+                </div>
+
+                </div>
+
+                <h3>Pierre Goncalves</h3>
+                
+                <div class="MemberDescription">
+                  French student in Computer Science and NLP, passionate about programming and new technology, I like artificial intelligence domain for the solutions it brings and the possibilities it offers.
+                </div>
+
+              </div>
+            </div>
+
+            <div class="TeamMember3">
+              <div class="MemberID">
+                <div class="picturealign">
+                  <div class="MemberPicture" id="Fredpicture"></div>
+                  
+
+                  <div class="MemberLinkedIn">
+                    <a href="https://www.linkedin.com/in/frédéric-assmus-389ab9141/" target="_blank" rel="noopener noreferrer">
+                        <div class="icon" id="linkedin"></div>
+                    </a>
+                  </div>
+
+                </div>
+
+                <h3>Frédéric Assmus</h3>
+                
+                <div class="MemberDescription">
+                  French computer scientist, with a background in statistics and cognitive science. Has been specialising in NLP for 2 years with the intention of working in the field of textual data.
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
