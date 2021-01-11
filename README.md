@@ -1,13 +1,17 @@
-# Answer-real-questions-using-Wikipedia-content / Ask.me
+# Ask.me : Question Answering using BERT and Wikipedia
 
-Student exploration of a kaggle competition subject
+Student exploration of Question Answering.
 
-The goal is to give to a question-answering model the best Wikipedia excerpt in which to search for an answer. 
-Given a real human question, we should predict a relevant answer, retrieved from the given excerpt.
+Our project aims to answer general knowledge questions by using a BERT model pretrained on SQuAD.
 
-To do so, our main tasks are to work on how to detect the topic of a question and select the best Wikipedia article given that topic, and a relevant excerpt from this article.
+The pipeline can be summed-up in 3 essential steps : 
+- Subject extraction
+- Wikipedia article retrieval
+- Answer extraction 
 
-https://www.kaggle.com/c/tensorflow2-question-answering/overview
+Our code is functional and we deployed a web app that can be accessed here : https://ask-me.azurewebsites.net/
+
+
 
 Pierre GONCALVES, Frederic ASSMUS, Axel DIDIER 
 
