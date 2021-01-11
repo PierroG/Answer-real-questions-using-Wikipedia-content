@@ -44,7 +44,8 @@ en_core_web_sm==2.3.1<br/>
 
 ## Docker ready
 
-The file AzureAskme with a Dockerfile can be used to create an image and to deploy in a web service.<br/>
+The AzureAskme file with its Dockerfile can be used to create an image of our application.<br/>
+It will be ready to be deployed in a web service.<br/>
 AzureAskme is available in /Results/
 
 ## Created by
