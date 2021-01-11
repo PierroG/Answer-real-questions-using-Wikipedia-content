@@ -2,32 +2,52 @@
 
 Student exploration of Question Answering.
 
-Our project aims to answer general knowledge questions by using a BERT model pretrained on SQuAD, and Wikipedia data.
+Our project aims to answer general knowledge questions by using Wikipedia data and the following BERT model pre-trained on SQuAD :
+bert-large-uncased-whole-word-masking-finetuned-squad.
+
+this model is available here : https://huggingface.co/bert-large-uncased-whole-word-masking-finetuned-squad
+
+## The pipeline
 
 The pipeline can be summed-up in 3 essential steps : 
-- Subject extraction
-- Wikipedia article retrieval
-- Answer extraction 
+
+<ul>
+    <li>Subject extraction</li>
+    <li>Wikipedia article retrieval</li>
+    <li>Answer extraction </li>
+</ul>
+
+## Run
+
+### Local
+
+To run this project locally, you have download the WebApp file located in /Code/WebApp/<br/>
+and run the file run_app.py with Python.
+
+### Online 
 
 Our code is functional and we deployed a web app that can be accessed here : https://ask-me.azurewebsites.net/
 
+## Requirements
 
-The app can be launched locally with Code/WebApp/run_app.py with the following requirements : 
-flask==1.1.2
-torch==1.6.0
-transformers==3.3.1
-scikit-learn==0.22.1
-nltk==3.4.5
-spacy==2.3.2
-wikipedia==1.4.0
-Wikipedia-API==0.5.4
-langdetect==1.0.8
-en_core_web_sm==2.3.1
+The app can be launched locally with the following requirements : <br/>
+flask==1.1.2<br/>
+torch==1.6.0<br/>
+transformers==3.3.1<br/>
+scikit-learn==0.22.1<br/>
+nltk==3.4.5<br/>
+spacy==2.3.2<br/>
+wikipedia==1.4.0<br/>
+Wikipedia-API==0.5.4<br/>
+langdetect==1.0.8<br/>
+en_core_web_sm==2.3.1<br/>
 
-A docker image for the app is available in Results/AzureAskme
+## Docker ready
 
+The file AzureAskme with a Dockerfile can be used to create an image and to deploy in a web service.<br/>
+AzureAskme is available in /Results/
 
-
+## Created by
 
 Pierre GONCALVES, Frederic ASSMUS, Axel DIDIER 
 
