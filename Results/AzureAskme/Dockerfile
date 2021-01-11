@@ -9,6 +9,6 @@ RUN pip --no-cache-dir install -r requirements.txt
 
 COPY . /app	
 
-CMD ["python","flask_test.py"]
+CMD ["python","run_app.py"]
 
 EXPOSE 80
