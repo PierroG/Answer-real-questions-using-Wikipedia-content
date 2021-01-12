@@ -307,7 +307,7 @@ class ask:
             
             if not u : 
                 u = "Sorry, we couldn't find any Wikipedia article related to your question."
-            return(True, "You are expecting me to answer by yes or non. I can’t give an answer that is that precise. But here is information that will help you answer it yourself.",
+            return(True, "You are expecting me to answer by yes or no. I can’t give an answer that is that precise. But here is information that will help you answer it yourself.",
                    "Maybe you should check that Wikipedia link.",
                    u )
         elif self.is_pseudocleft(question) :
