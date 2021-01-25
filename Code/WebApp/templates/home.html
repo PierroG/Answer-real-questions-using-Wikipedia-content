@@ -82,12 +82,47 @@
         a.style.display = "none";
 
       }
+
       
       var i = 0;
-      var txt = 'What sport did Maurice Herzog practice?';
+      var txt = 'What was the destination of the missing flight MH370 ?';
+      var y = Math.floor(Math.random() * Math.floor(15));
+      if (y == 0) { 
+        txt = 'What sport did Maurice Herzog practice ?'; 
+      } else if (y == 1) { 
+        txt = 'Rolex is a company that specializes in what type of product ?'; 
+      } else if (y == 2) {
+        txt = 'What was the destination of the missing flight MH370 ?'; 
+      } else if (y == 3) {
+        txt = 'Which condiment is also known as Japanese horseradish ?'; 
+      } else if (y == 4) {
+        txt = 'How many Harry Potter books are there ?'; 
+      } else if (y == 5) {
+        txt = 'Which film won the first Academy Award for Best Picture ?'; 
+      } else if (y == 6) {
+        txt = 'What was the first animated film ever released at Disney ?'; 
+      } else if (y == 7) {
+        txt = "What is the name of Han Solo's spaceship ?"; 
+      } else if (y == 8) {
+        txt = 'Who is the founder of the modern study of genetics ?'; 
+      } else if (y == 9) {
+        txt = 'Who invented Coca-Cola ?'; 
+      } else if (y == 10) {
+        txt = 'When was the first color photograph taken ?'; 
+      } else if (y == 11) {
+        txt = 'What was the number of Twitter’s original character limit ?'; 
+      } else if (y == 12) {
+        txt = 'Which singer’s name is Stefani Joanne Germanotta ?'; 
+      } else if (y == 13) {
+        txt = 'How many signs are there in the Zodiac ?'; 
+      } else if (y == 14) {
+        txt = 'What is the first element on the Periodic Table ?'; 
+      }
       var speed = 50;
 
+
       function startDemo(){
+      
         s = document.getElementById("search");
         
         s.value = "";
