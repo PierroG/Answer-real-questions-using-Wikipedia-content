@@ -26,7 +26,7 @@ and run the file run_app.py with Python.
 
 ### Online 
 
-Our code is functional and we deployed a web app that can be accessed here : https://ask-me.azurewebsites.net/
+Our code is functional and we deployed a web app that can be accessed here : https://askme-app.azurewebsites.net/
 
 ## Requirements
 
